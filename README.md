@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Typical Studio
 
-## Getting Started
+Website company profile untuk **Typical Studio** — studio digital branding, social media, dan web berbasis di Surabaya. Satu tim untuk visual identity, konten social media, dan website high-performance dari brief sampai launch.
 
-First, run the development server:
+## Tech Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router) + React 19 + TypeScript
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [GSAP](https://gsap.com) untuk animasi scroll & interaksi
+
+## Menjalankan Project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # development → http://localhost:3000
+npm run build    # production build
+npm run start    # jalankan hasil build
+npm run lint     # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/                # Halaman & layout (App Router)
+  layout.tsx        # Root layout, font (Archivo + Instrument Serif), metadata & favicon
+  page.tsx          # Homepage: Hero, ClientLogos, Services, CaseStackScroll, Testimonials
+  about/            # Halaman About
+  services/         # Halaman Services
+  pricing/          # Halaman Pricing
+  robots.ts         # robots.txt
+  sitemap.ts        # sitemap.xml
+components/
+  layout/           # Navbar, Footer
+  sections/         # Hero, Services, ClientLogos, CaseStackScroll, Testimonials, PricingPackages
+  ui/               # Logo & komponen UI kecil
+public/             # Aset statis
+  logo.png          # Wordmark TYPCL (transparan) — dipakai Navbar & Footer
+  logo-icon.png     # Ikon persegi (favicon / apple-touch-icon)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Brand
 
-## Learn More
+- Warna utama: mint `#02e4a4`, ink gelap `#111315`, paper `#f3f0e8`
+- Logo: wordmark **TYPCL** (varian transparan untuk navbar/footer, varian kotak gelap untuk favicon)
+- Favicon & apple-touch-icon diatur lewat `metadata.icons` di `app/layout.tsx`
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deployable ke Vercel atau host Node.js apa pun:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build && npm run start
+```
