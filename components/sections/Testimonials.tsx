@@ -99,7 +99,7 @@ export function Testimonials() {
           </div>
 
           {/* Right — 58% */}
-          <div style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}>
+          <div className="lg:pl-[clamp(2rem,4vw,5rem)]" style={{ flex: '0 0 58%' }}>
             <p className="text-base leading-7 text-[#5f6258] max-w-[44ch]">
               Direct feedback from brand leaders and tech founders who partnered with our studio for content production, visual identity, and web engineering.
             </p>

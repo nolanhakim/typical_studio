@@ -41,13 +41,10 @@ export function Hero() {
       <div className="relative z-10 flex flex-col" style={{ minHeight: '100svh' }}>
 
         {/* ── SPLIT CONTENT AREA ── */}
-        <div className="flex-1 flex flex-col lg:flex-row">
+        <div className="mx-auto flex w-full max-w-[1360px] flex-1 flex-col px-6 sm:px-10 lg:flex-row lg:px-16">
 
           {/* LEFT COLUMN — 42% */}
-          <div
-            className="flex flex-col justify-center px-8 sm:px-12 lg:px-16 pt-32 pb-10 lg:pt-36 lg:pb-16"
-            style={{ flex: '0 0 42%' }}
-          >
+          <div className="flex flex-col justify-center pt-32 pb-10 lg:flex-[0_0_42%] lg:pt-36 lg:pb-16">
             {/* Eyebrow */}
             <p
               className="mb-7 font-mono text-[10.5px] uppercase tracking-[0.2em] text-gray-400"
@@ -88,10 +85,7 @@ export function Hero() {
           </div>
 
           {/* RIGHT COLUMN — 58%, pouches */}
-          <div
-            className="relative flex items-center justify-center select-none"
-            style={{ flex: '0 0 58%', minHeight: '480px' }}
-          >
+          <div className="relative flex min-h-[360px] scale-[0.72] items-center justify-center select-none sm:min-h-[460px] sm:scale-[0.85] lg:min-h-[480px] lg:flex-[0_0_58%] lg:scale-100">
             {/* Glow blobs */}
             <div
               aria-hidden="true"
@@ -274,20 +268,12 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── BOTTOM SLAB ── */}
-        <div>
+        {/* ── BOTTOM CARD ── */}
+        <div className="relative mx-auto w-full max-w-[1360px] px-6 pb-8 sm:px-10 sm:pb-12 lg:px-16">
           <div
-            className="relative"
-            style={{
-              width: 'min(52%, 680px)',
-              background: '#181d22',
-              borderTop: '1px solid rgba(255,255,255,0.07)',
-              borderRight: '1px solid rgba(255,255,255,0.07)',
-              borderTopRightRadius: '3rem',
-              padding: 'clamp(1.75rem, 3vw, 2.75rem) clamp(1.75rem, 3.5vw, 3.5rem)',
-            }}
+            className="w-fit max-w-lg rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#181d22] p-5 sm:p-6"
           >
-            <p className="text-[0.9rem] leading-relaxed text-gray-300 max-w-xs mb-5">
+            <p className="text-[0.9rem] leading-relaxed text-gray-300 mb-5">
               Comprehensive creative solutions to strengthen brand identity, command social media attention, and convert website visitors.
             </p>
 

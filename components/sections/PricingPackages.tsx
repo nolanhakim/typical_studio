@@ -109,8 +109,8 @@ export function PricingPackages() {
       {/* Panel — right 58% */}
       <div
         key={active}
-        className="pkg-panel"
-        style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}
+        className="pkg-panel lg:pl-[clamp(2rem,4vw,5rem)]"
+        style={{ flex: '0 0 58%' }}
         aria-live="polite"
       >
         <p className="flex items-baseline gap-3">

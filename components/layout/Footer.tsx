@@ -86,8 +86,8 @@ export function Footer({ dark = false }: { dark?: boolean }) {
 
           {/* Right 58% — nav + contact */}
           <div
-            className="flex flex-col sm:flex-row gap-12"
-            style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}
+            className="flex flex-col sm:flex-row gap-12 lg:pl-[clamp(2rem,4vw,5rem)]"
+            style={{ flex: '0 0 58%' }}
           >
             {/* Nav links */}
             <div className="flex-1">

@@ -136,13 +136,64 @@ export default function AboutPage() {
                     </h3>
                   </div>
                   <p
-                    className="text-sm leading-6 text-[#5f6258] max-w-[46ch]"
-                    style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}
+                    className="text-sm leading-6 text-[#5f6258] max-w-[46ch] lg:pl-[clamp(2rem,4vw,5rem)]"
+                    style={{ flex: '0 0 58%' }}
                   >
                     {v.desc}
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* Team — placeholder slots, no invented identities */}
+            <div
+              className="mt-20"
+              style={{ borderTop: '1px solid rgba(20,23,15,0.12)', paddingTop: 'clamp(3rem,5vw,4.5rem)' }}
+            >
+              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#5f6258]">
+                    Team
+                  </p>
+                  <h3
+                    className="mt-5 font-black leading-[0.95] tracking-[-0.02em]"
+                    style={{ fontSize: 'clamp(2rem,3.4vw,3.2rem)' }}
+                  >
+                    The people behind the work.
+                  </h3>
+                </div>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#5f6258]">
+                  Placeholder slots
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {['01', '02', '03'].map((n) => (
+                  <div key={n}>
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-dashed border-[#14170f]/20 bg-[#f3f0e8]">
+                      <svg
+                        aria-hidden="true"
+                        className="absolute inset-0 m-auto h-24 w-24 text-[#14170f]/15"
+                        viewBox="0 0 96 96"
+                        fill="none"
+                      >
+                        <circle cx="48" cy="34" r="16" stroke="currentColor" strokeWidth="3" />
+                        <path d="M16 88c0-18 14-30 32-30s32 12 32 30" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      </svg>
+                      <span className="absolute left-4 top-4 rounded-full border border-[#14170f]/15 bg-white/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-[#5f6258]">
+                        Photo {n}
+                      </span>
+                    </div>
+                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[#5f6258]">
+                      Name &amp; role to be added
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-6 max-w-[60ch] text-xs leading-5 text-[#5f6258]">
+                These are empty slots. Replace them with real photos, names, and roles once confirmed.
+              </p>
             </div>
 
             {/* CTA banner — mint, Launch package style */}

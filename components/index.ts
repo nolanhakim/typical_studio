@@ -6,7 +6,7 @@ export { Footer } from './layout/Footer';
 export { Hero } from './sections/Hero';
 export { ClientLogos } from './sections/ClientLogos';
 export { Services } from './sections/Services';
-export { default as CaseStackScroll } from './sections/CaseStackScroll';
+export { Portfolio } from './sections/Portfolio';
 export { Testimonials } from './sections/Testimonials';
 export { PricingPackages } from './sections/PricingPackages';
 

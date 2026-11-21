@@ -23,15 +23,16 @@ npm run lint     # eslint
 ```
 app/                # Halaman & layout (App Router)
   layout.tsx        # Root layout, font (Archivo + Instrument Serif), metadata & favicon
-  page.tsx          # Homepage: Hero, ClientLogos, Services, CaseStackScroll, Testimonials
+  page.tsx          # Homepage: Hero, ClientLogos, Services, Portfolio, Testimonials
   about/            # Halaman About
   services/         # Halaman Services
+  portfolio/        # Halaman Portfolio (grid 3 × 3 contoh proyek)
   pricing/          # Halaman Pricing
   robots.ts         # robots.txt
   sitemap.ts        # sitemap.xml
 components/
   layout/           # Navbar, Footer
-  sections/         # Hero, Services, ClientLogos, CaseStackScroll, Testimonials, PricingPackages
+  sections/         # Hero, Services, Portfolio, ClientLogos, Testimonials, PricingPackages
   ui/               # Logo & komponen UI kecil
 public/             # Aset statis
   logo.png          # Wordmark TYPCL (transparan) — dipakai Navbar & Footer

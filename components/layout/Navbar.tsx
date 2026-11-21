@@ -10,8 +10,9 @@ import { Logo } from '@/components/ui/Logo';
 ───────────────────────────────────────────── */
 
 const navLinks = [
-    { label: 'About', href: '/about' },
+  { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
+  { label: 'Our Works', href: '/portfolio' },
   { label: 'Pricing', href: '/pricing' },
 ];
 

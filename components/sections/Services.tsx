@@ -118,7 +118,7 @@ export function Services() {
           </div>
 
           {/* Right — sub-copy */}
-          <div style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}>
+          <div className="lg:pl-[clamp(2rem,4vw,5rem)]" style={{ flex: '0 0 58%' }}>
             <p className="text-base leading-7 text-[#5f6258] max-w-[46ch]">
               Content captures attention. Websites build conviction. We
               craft both within one cohesive visual language.
@@ -167,8 +167,8 @@ export function Services() {
 
                   {/* Intro — right 58% */}
                   <div
-                    className="flex items-center justify-between"
-                    style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}
+                    className="flex items-center justify-between lg:pl-[clamp(2rem,4vw,5rem)]"
+                    style={{ flex: '0 0 58%' }}
                   >
                     <p className="text-sm leading-6 text-[#5f6258] max-w-[42ch] hidden lg:block">
                       {disc.intro}
@@ -209,7 +209,7 @@ export function Services() {
                     <div style={{ flex: '0 0 42%' }} className="hidden lg:block" />
 
                     {/* Item list — right 58% */}
-                    <ul style={{ flex: '0 0 58%', paddingLeft: 'clamp(2rem,4vw,5rem)' }}>
+                    <ul className="lg:pl-[clamp(2rem,4vw,5rem)]" style={{ flex: '0 0 58%' }}>
                       {disc.items.map((item, i) => (
                         <li
                           key={item.title}

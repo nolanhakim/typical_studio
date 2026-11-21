@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
-import { Navbar, Footer, PricingPackages } from '@/components';
+﻿import type { Metadata } from 'next';
+import { Navbar, Footer } from '@/components';
+import { PricingCards } from '@/components/sections/PricingCards';
 
 export const metadata: Metadata = {
-  title: 'Pricing — Typical Studio',
+  title: 'Pricing - Typical Studio',
   description:
     'Social media retainers and fixed-scope website builds from Typical Studio, Surabaya. Example package figures and frequently asked questions.',
 };
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Do you work with clients outside Surabaya?',
-    a: "Yes. We are based in Surabaya and work remote-first with clients across Indonesia. Working hours are Mon–Fri, 09:00–18:00 WIB.",
+    a: "Yes. We are based in Surabaya and work remote-first with clients across Indonesia. Working hours are MonΓÇôFri, 09:00ΓÇô18:00 WIB.",
   },
   {
     q: 'How quickly will I hear back after sending a brief?',
@@ -36,7 +37,7 @@ export default function PricingPage() {
       <Navbar />
       <main id="main-content" className="flex-1 bg-[#111315]">
 
-        {/* ── INTRO — dark, sits under the transparent navbar ── */}
+        {/* ΓöÇΓöÇ INTRO ΓÇö dark, sits under the transparent navbar ΓöÇΓöÇ */}
         <section className="relative overflow-hidden bg-[#111315] text-white">
           <div
             aria-hidden="true"
@@ -79,14 +80,14 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* ── WHITE CARD — packages ── */}
+        {/* ΓöÇΓöÇ WHITE CARD ΓÇö packages ΓöÇΓöÇ */}
         <section
           className="relative z-20 -mt-6 sm:-mt-10 rounded-[2.5rem] sm:rounded-[3.5rem] bg-white text-[#14170f] shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
           style={{ paddingTop: 'clamp(4rem,7vw,6rem)', paddingBottom: 'clamp(3rem,5vw,4.5rem)' }}
         >
           <div className="relative mx-auto w-full max-w-[1360px] px-6 sm:px-10 lg:px-16">
 
-            <PricingPackages />
+            <PricingCards />
 
             <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.15em] text-[#5f6258]">
               Example figures. Your final quote follows the brief.
@@ -95,7 +96,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* ── DARK — FAQ + CTA ── */}
+        {/* ΓöÇΓöÇ DARK ΓÇö FAQ + CTA ΓöÇΓöÇ */}
         <section
           className="relative text-white"
           style={{ paddingTop: 'clamp(4rem,7vw,6rem)', paddingBottom: 'clamp(5rem,8vw,7rem)' }}
@@ -144,7 +145,7 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* CTA banner — mint */}
+            {/* CTA banner ΓÇö mint */}
             <div className="mt-20 flex flex-col lg:flex-row lg:items-stretch gap-0">
               <div
                 className="flex items-start lg:items-end pb-6 lg:pb-0 lg:pr-10"

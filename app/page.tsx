@@ -4,7 +4,7 @@ import {
   Hero,
   ClientLogos,
   Services,
-  CaseStackScroll,
+  Portfolio,
   Testimonials,
 } from '@/components';
 
@@ -16,9 +16,7 @@ export default function Home() {
         <Hero />
         <ClientLogos />
         <Services />
-        <section id="projects" className="relative isolate scroll-mt-20 bg-[#111315] text-white">
-          <CaseStackScroll />
-        </section>
+        <Portfolio />
         <Testimonials />
       </main>
       <Footer dark />

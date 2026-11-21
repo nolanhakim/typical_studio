@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Navbar, Footer, Services, CaseStackScroll } from '@/components';
+import { Navbar, Footer, Services, Portfolio } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Services — Typical Studio',
@@ -57,12 +57,8 @@ export default function ServicesPage() {
         </section>
 
         <Services />
-
-        <section id="projects" className="relative isolate scroll-mt-20 bg-[#111315] text-white">
-          <CaseStackScroll />
-        </section>
       </main>
-      <Footer />
+      <Footer dark />
     </>
   );
 }
