@@ -1,155 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { projects } from '@/lib/projects';
 
 /* ─────────────────────────────────────────────
    Portfolio — carousel dengan kartu aktif di tengah,
    kartu sebelah kiri/kanan mengintip, tombol di bawah.
 ───────────────────────────────────────────── */
 
-const samples = [
-  {
-    number: '01',
-    category: 'Social media',
-    title: 'A feed with a steady rhythm',
-    description: 'Illustrative feed layout for daily posts and carousels.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-0 grid grid-cols-3 gap-2 p-5">
-        <div className="rounded-lg" style={{ background: 'linear-gradient(150deg,#02e4a4,#0b5b42)' }} />
-        <div className="rounded-lg" style={{ background: '#20262a' }} />
-        <div className="rounded-lg" style={{ background: 'linear-gradient(160deg,#eae6dc,#8a8d84)' }} />
-        <div className="rounded-lg" style={{ background: '#2d3437' }} />
-        <div className="grid place-items-center rounded-lg" style={{ background: '#f3f0e8' }}>
-          <span className="h-6 w-6 rounded-full border-[3px] border-[#14170f]" />
-        </div>
-        <div className="rounded-lg" style={{ background: 'linear-gradient(140deg,#0b5b42,#14170f)' }} />
-      </div>
-    ),
-  },
-  {
-    number: '02',
-    category: 'Short-form video',
-    title: 'Frames made for the first two seconds',
-    description: 'Illustrative phone layout for Reels and TikTok.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-0 grid place-items-center">
-        <div className="relative aspect-[9/16] h-[82%] overflow-hidden rounded-2xl border border-white/15 bg-[#1b2023]">
-          <div className="absolute inset-x-0 top-0 h-1/2" style={{ background: 'linear-gradient(155deg,#02e4a4,#0b5b42 65%,#14170f)' }} />
-          <div className="absolute bottom-5 left-4 right-5 space-y-2">
-            <div className="h-2 w-4/5 rounded-full bg-white/75" />
-            <div className="h-2 w-3/5 rounded-full bg-white/40" />
-          </div>
-          <div className="absolute bottom-16 right-3 grid gap-3">
-            <span className="h-6 w-6 rounded-full border border-white/50" />
-            <span className="h-6 w-6 rounded-full border border-white/50" />
-            <span className="h-6 w-6 rounded-full border border-white/50" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    number: '03',
-    category: 'Website',
-    title: 'A page built to be read and maintained',
-    description: 'Illustrative browser view for a company profile.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-5 flex flex-col overflow-hidden rounded-xl border border-black/10 bg-[#f3f0e8]">
-        <div className="flex h-7 flex-none items-center gap-1.5 border-b border-black/10 bg-white px-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#d8d5cd]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[#d8d5cd]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[#d8d5cd]" />
-        </div>
-        <div className="p-5">
-          <div className="h-2 w-16 rounded-full bg-[#02e4a4]" />
-          <div className="mt-3 h-5 w-3/4 rounded bg-[#14170f]" />
-          <div className="mt-2 h-2 w-1/2 rounded-full bg-[#5f6258]/40" />
-          <div className="mt-5 grid grid-cols-2 gap-3">
-            <div className="h-14 rounded-lg bg-[#0b5b42]/15" />
-            <div className="h-14 rounded-lg bg-[#14170f]/10" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    number: '04',
-    category: 'Campaign carousel',
-    title: 'One story, split into clean frames',
-    description: 'Illustrative swipe-through layout for a short campaign.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center gap-3 p-6">
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className="h-40 flex-1 rounded-xl border border-white/10 p-4"
-            style={{
-              background: i === 1 ? 'linear-gradient(150deg,#02e4a4,#0b5b42)' : '#20262a',
-              transform: `translateY(${i === 1 ? '-12px' : '8px'})`,
-            }}
-          >
-            <div className={`h-2 w-8 rounded-full ${i === 1 ? 'bg-black/30' : 'bg-white/40'}`} />
-            <div className={`mt-3 h-3 w-3/4 rounded ${i === 1 ? 'bg-black/60' : 'bg-white/70'}`} />
-            <div className={`mt-2 h-2 w-1/2 rounded-full ${i === 1 ? 'bg-black/30' : 'bg-white/30'}`} />
-          </div>
-        ))}
-      </div>
-    ),
-  },
-  {
-    number: '05',
-    category: 'Visual identity',
-    title: 'A system that stays consistent',
-    description: 'Illustrative type, colour, and mark sheet.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-0 grid grid-cols-[1fr_1.2fr] gap-4 p-6">
-        <div className="rounded-xl border border-white/10 bg-[#20262a] p-5">
-          <div className="font-serif text-5xl italic text-paper">Aa</div>
-          <div className="mt-4 h-2 w-2/3 rounded-full bg-white/30" />
-          <div className="mt-2 h-2 w-1/2 rounded-full bg-white/20" />
-        </div>
-        <div className="grid grid-rows-[1fr_auto] gap-4">
-          <div className="rounded-xl border border-white/10 bg-[#f3f0e8] p-5">
-            <div className="flex gap-2">
-              <span className="h-10 flex-1 rounded-lg" style={{ background: '#02e4a4' }} />
-              <span className="h-10 flex-1 rounded-lg" style={{ background: '#0b5b42' }} />
-              <span className="h-10 flex-1 rounded-lg" style={{ background: '#14170f' }} />
-              <span className="h-10 flex-1 rounded-lg" style={{ background: '#eae6dc' }} />
-            </div>
-            <div className="mt-4 h-2 w-4/5 rounded-full bg-[#14170f]/25" />
-          </div>
-          <div className="rounded-xl border border-white/10 bg-[#1b2023] p-4">
-            <div className="h-6 w-24 rounded-full bg-white/15" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    number: '06',
-    category: 'Landing page',
-    title: 'One clear action, nothing competing',
-    description: 'Illustrative landing page with a single call to action.',
-    preview: (
-      <div aria-hidden="true" className="absolute inset-5 flex flex-col overflow-hidden rounded-xl border border-black/10 bg-[#eae6dc]">
-        <div className="flex h-7 flex-none items-center justify-between border-b border-black/10 bg-white px-3">
-          <span className="h-2 w-16 rounded-full bg-[#14170f]/20" />
-          <span className="h-2 w-8 rounded-full bg-[#02e4a4]" />
-        </div>
-        <div className="grid flex-1 grid-cols-[1.2fr_1fr]">
-          <div className="p-6">
-            <div className="h-2 w-12 rounded-full bg-[#0b5b42]/40" />
-            <div className="mt-3 h-5 w-11/12 rounded bg-[#14170f]" />
-            <div className="mt-2 h-5 w-2/3 rounded bg-[#14170f]" />
-            <div className="mt-4 h-2 w-3/4 rounded-full bg-[#5f6258]/40" />
-            <div className="mt-5 h-7 w-24 rounded-full bg-[#02e4a4]" />
-          </div>
-          <div className="m-4 rounded-lg" style={{ background: 'linear-gradient(150deg,#0b5b42,#14170f)' }} />
-        </div>
-      </div>
-    ),
-  },
-];
+const samples = projects.slice(0, 6);
 
 /* Lebar satu kartu & jarak antar kartu. Pakai vw supaya posisi tengah
    dan geseran track dihitung dengan satuan yang sama. */
@@ -302,7 +162,14 @@ export function Portfolio() {
                 style={{ width: CARD_W }}
               >
                 {sample.preview}
-                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/60 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-white/80 backdrop-blur-sm">
+                {isActive && (
+                  <Link
+                    href={`/portfolio/${sample.slug}`}
+                    aria-label={`View details for ${sample.title}`}
+                    className="absolute inset-0 z-10 rounded-[28px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#02e4a4]"
+                  />
+                )}
+                <span className="pointer-events-none absolute left-4 top-4 rounded-full border border-white/20 bg-black/60 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-white/80 backdrop-blur-sm">
                   Sample
                 </span>
               </article>
@@ -333,6 +200,13 @@ export function Portfolio() {
           <p className="mx-auto mt-3 max-w-[44ch] text-sm leading-6 text-[#8a8d84]">
             {current.description}
           </p>
+          <Link
+            href={`/portfolio/${current.slug}`}
+            className="mt-4 inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#02e4a4] transition-opacity hover:opacity-80"
+          >
+            <span>View project details</span>
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
 
         <div className="mt-6 flex items-center gap-3">
