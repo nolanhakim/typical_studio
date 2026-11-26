@@ -25,7 +25,7 @@ export function Footer({ dark = false }: { dark?: boolean }) {
   return (
     <footer
       className={
-        'relative z-20 -mt-6 sm:-mt-10 overflow-hidden rounded-t-[2.5rem] sm:rounded-t-[3.5rem] shadow-[0_-15px_40px_rgba(0,0,0,0.3)] '
+        'relative z-10 overflow-hidden '
         + (dark ? 'bg-[#111315] text-white' : 'bg-white text-[#14170f]')
       }
       style={{
